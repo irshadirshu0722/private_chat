@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AuthPage() {
+function AuthInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const nextPath = "/chat"; // always go to chat after auth
@@ -80,5 +80,13 @@ export default function AuthPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50" />}> 
+      <AuthInner />
+    </Suspense>
   );
 }
