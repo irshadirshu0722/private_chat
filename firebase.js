@@ -2,15 +2,14 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyAFm81iJaX1tqtDqX3QzJGmScOXA0pxcxM",
-  authDomain: "privatechat-6d854.firebaseapp.com",
-  databaseURL: "https://privatechat-6d854-default-rtdb.firebaseio.com",
-  projectId: "privatechat-6d854",
-  storageBucket: "privatechat-6d854.firebasestorage.app",
-  messagingSenderId: "371742672851",
-  appId: "1:371742672851:web:b8b58e19d5311deaffd126"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
