@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Private Chat Application
 
-## Getting Started
+A hidden chat application disguised as a Google search interface for private communication.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Page 1: Google Search Interface
+- Exact replica of Google's search page
+- Redirects to real Google search for most queries
+- Special trigger: searching for "xylem +2 note" reveals the hidden chat
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Page 2: Fake Google Results
+- Mimics Google search results for "xylem +2 note"
+- Clicking on pagination or page numbers leads to the chat
+- Looks completely legitimate
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Page 3: Private Chat Interface
+- WhatsApp-like chat interface
+- Real-time messaging using Firebase
+- Voice message recording and playback
+- Emoji picker
+- Message likes
+- User authentication via URL parameters
+- Shows only last week's messages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to Use
 
-## Learn More
+1. **Start the application:**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Access the chat:**
+   - Go to the homepage (looks like Google)
+   - Search for "xylem +2 note"
+   - Click on any pagination button or page number
+   - You'll be redirected to the chat
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Chat access:**
+   - Add `?user=username` to the chat URL to set your identity
+   - Example: `/chat?user=irshad` or `/chat?user=sarah`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technical Details
 
-## Deploy on Vercel
+- Built with Next.js 15 and React 19
+- Firebase Realtime Database for messaging
+- Tailwind CSS for styling
+- Responsive design
+- Voice recording using MediaRecorder API
+- Real-time updates with Firebase listeners
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Security Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Messages are automatically deleted after one week
+- No media upload functionality
+- Simple user identification via URL parameters
+- Disguised as legitimate educational content
+
+## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Configure Firebase:
+   - Update `firebase.js` with your Firebase project credentials
+   - Enable Realtime Database in Firebase console
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Usage Tips
+
+- Bookmark the chat URL with your username parameter
+- Use incognito/private browsing for extra privacy
+- The application looks completely legitimate to casual observers
+- Perfect for situations where privacy is crucial
+
+## Note
+
+This application is designed for legitimate private communication needs. Please use responsibly and in accordance with applicable laws and regulations.
